@@ -343,7 +343,8 @@ void AdminImpl::writeClustersAsJson(Buffer::Instance& response) {
       }
     }
   }
-  response.add(MessageUtil::getJsonStringFromMessage(clusters, true)); // pretty-print
+                              // pretty-print, always print primitive fields
+  response.add(MessageUtil::getJsonStringFromMessage(clusters, true, true));
 }
 
 void AdminImpl::writeClustersAsText(Buffer::Instance& response) {
